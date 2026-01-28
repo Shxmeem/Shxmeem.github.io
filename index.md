@@ -2,7 +2,7 @@
 
 ## How It All Started
 
-Back in June 2025, I was exploring ways to integrate a cloud service idea within WhatsApp to help small businesses manage customer interactions — things like cross-device accessibility and automated reminders.  
+Back in June 2025, I was exploring ways to integrate a cloud service idea within WhatsApp to help small businesses manage customer interactions.things like cross-device accessibility and automated reminders.  
 That’s when I discovered the **WhatsApp Cloud API**.
 
 The documentation mentioned a **free testing tier**, so I decided to try it out. According to the terms, this free tier only allowed sending messages to my own registered number, not to anyone else.
@@ -11,7 +11,7 @@ But things didn’t go as planned.
 
 ## The Unexpected Bug
 
-During setup, many users — myself included — ran into a strange bug: the option to create a **“Test Number”** simply didn’t work.  
+During setup, many users — ran into a strange bug: the option to create a **“Test Number”** simply didn’t work.  
 Even weirder — when I logged into my dashboard later, **several temporary numbers** had somehow been added to my account without my doing anything.
 
 That made me nervous.  
