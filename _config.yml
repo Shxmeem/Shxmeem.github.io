@@ -3,11 +3,6 @@ title_short: ""
 description: ""
 keywords: ""
 author: ""
-remote_theme: LittleCeo/elca
-
-plugins:
-  - jekyll-remote-theme
-# Logo (optional)
 logo: " "
 
 navigation:
