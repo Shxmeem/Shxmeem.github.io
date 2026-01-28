@@ -1,39 +1,80 @@
-## Incident Report: WhatsApp Business API Account & Number Lockout
+# My WhatsApp Number Is Trapped Inside Meta's Servers
 
-### Timeline & Summary
+## How It All Started
 
-*   **Mid-June 2025:** I had an idea for a cloud service within WhatsApp to help businesses manage customers across devices with automated reminders.
-*   **June 18, 2025:** While exploring the **WhatsApp Cloud API**, I noted its pricing indicated a free tier for testing, allowing messages only to a registered number.
-*   **Bug Encountered:** During setup, I (and many other users, per reports) encountered a bug preventing the creation of "Test Numbers." Surprisingly, upon logging into my dashboard, I found several temporary numbers had been added to my account without my action. This raised concerns about a technical bug potentially compromising account access, pricing, and security.
-*   **July 24, 2025:** After verifying my billing showed **$0.00 due**, I initiated account deletion. As a precaution, I first removed my WhatsApp number from the Cloud API to retain normal app access. I received a confirmation email stating:
-    > "Facebook will start deleting your account in 30 days. After 23 Aug 2025, you won't be able to access the account or any of the content you've added."
-    ![Deletion Confirmation](/1.png)
-*   **Post-Deletion Deadline (Sept 3, 2025):** The number remained inaccessible in WhatsApp. The promised deletion did not seem to complete. I created a support ticket.
-    ![Support Ticket](/2.png)
-    The ticket was automatically closed with only a "send feedback" prompt, and no human response.
-*   **Escalation Attempts:** I repeatedly contacted:
-    *   WhatsApp Support
-    *   Facebook Support
-    *   The WhatsApp Grievance Officer
-    *   Facebook Developers
-    No human response was ever received.
-*   **Bug Bounty Report:** I submitted a report to Meta's Bug Bounty program to highlight that business accounts were stuck on their servers. It was rejected as not falling within their vulnerability categories.
-*   **Account Status Test:** Following a suggestion, I attempted to create a new account with the same email to see if my data was truly deleted. This created a fresh account, which was **banned within 7 hours**.
-    ![Account Ban](/3.png)
-*   **Regulatory Complaint:** I filed a grievance with **gac.gov.in**. They rejected the complaint, stating they only consider issues reported within one month of occurrence.
-    ![GAC Rejection](/4.png)
-*   **Current Status (Persistent Issue):** My phone number is still registered as a Business API number on Meta's servers, locking me out of using it on the standard WhatsApp app.
+Back in June 2025, I was exploring ways to integrate a cloud service idea within WhatsApp to help small businesses manage customer interactions — things like cross-device accessibility and automated reminders.  
+That’s when I discovered the **WhatsApp Cloud API**.
 
-### The Core Problem
+The documentation mentioned a **free testing tier**, so I decided to try it out. According to the terms, this free tier only allowed sending messages to my own registered number, not to anyone else.
 
-My phone number, **+91 99614 50351**, is trapped within Meta's Business infrastructure. The account deletion process failed, and there is no functional support channel to resolve this.
+But things didn’t go as planned.
 
-**You can verify the number's business status here:**  
+## The Unexpected Bug
+
+During setup, many users — myself included — ran into a strange bug: the option to create a **“Test Number”** simply didn’t work.  
+Even weirder — when I logged into my dashboard later, **several temporary numbers** had somehow been added to my account without my doing anything.
+
+That made me nervous.  
+If there was a technical bug letting random numbers attach to my account, what about security? Or worse — what if the pricing model got affected?
+
+So I checked my billing. It still said **$0.00**, with no pending dues.  
+To be safe, I decided to delete the account.
+
+## Trying to Delete — and Losing Access
+
+On **July 24, 2025**, I first removed my WhatsApp number from the Cloud API — hoping I’d still be able to use it normally in the WhatsApp app.  
+Then I requested full account deletion.
+
+I got a confirmation email:
+
+> “Facebook will start deleting your account in 30 days. After 23 Aug 2025, you won't be able to access the account or any of the content you've added.”
+
+![Deletion confirmation screenshot](/1.png)
+
+But once I removed the number from the Cloud API, **I couldn’t access it on WhatsApp anymore**.  
+Still, since Meta said the account would be deleted in 30 days, I waited.
+
+## The Silence After “Deletion”
+
+By **September 3, 2025** — well past the deletion date — my number was still locked out.  
+I created a support ticket, but it was **automatically closed** without any response — just a “send feedback” button.
+
+![Closed support ticket screenshot](/2.png)
+
+I then tried reaching out everywhere:
+
+- WhatsApp Support
+- Facebook Support
+- WhatsApp Grievance Officer
+- Facebook Developer Support
+
+**No human ever replied.**
+
+## More Failed Attempts
+
+I even submitted a report to **Meta’s Bug Bounty program**, thinking maybe this was a system flaw affecting other business accounts.  
+It was rejected — they said it didn’t fit their security vulnerability categories.
+
+Someone online suggested creating a new account with the same email to check if my data was really deleted.  
+I tried — a new account was created, but **it got banned within 7 hours**.
+
+![Account banned screenshot](/3.png)
+
+Finally, I filed a formal grievance with **gac.gov.in**, but they rejected it, saying they only handle complaints made within one month of the issue.
+
+![GAC rejection screenshot](/4.png)
+
+## Where Things Stand Now
+
+It’s been months.  
+**My phone number is still registered as a WhatsApp Business number on Meta’s servers**, and I’m completely locked out from using it.
+
+You can check the number here:  
 [wa.me/919961450351?text=test](https://wa.me/919961450351?text=test)
 
-### Key Details
+---
 
-*   **Email used for the Meta Business Account:** `pyavamottapettavan@gmail.com`
-*   **Locked-out WhatsApp Number:** `+91 99614 50351`
+**📞 Locked number:** `+91 99614 50351`  
+**📧 Account email:** `pyavamottapettavan@gmail.com`
 
-**For any communication, please contact me via the email above.**
+If you have any insight, suggestion, or contact that could help,please reach out via email.
