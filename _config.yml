@@ -1,0 +1,23 @@
+title: ""
+title_short: ""
+description: ""
+keywords: ""
+author: ""
+remote_theme: LittleCeo/elca
+
+plugins:
+  - jekyll-remote-theme
+# Logo (optional)
+logo: " "
+
+navigation:
+  - title: "Home"
+    url: "/"
+
+# Footer configuration
+footer:
+  columns:
+    - title: "Quick Links"
+      links:
+        - name: "Home"
+          url: "/"
