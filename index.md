@@ -29,7 +29,7 @@ I got a confirmation email:
 
 > “Facebook will start deleting your account in 30 days. After 23 Aug 2025, you won't be able to access the account or any of the content you've added.”
 
-![Deletion confirmation screenshot](/1.png)
+![Deletion confirmation screenshot](/1.jpg)
 
 But once I removed the number from the Cloud API, **I couldn’t access it on WhatsApp anymore**.  
 Still, since Meta said the account would be deleted in 30 days, I waited.
@@ -39,7 +39,7 @@ Still, since Meta said the account would be deleted in 30 days, I waited.
 By **September 3, 2025** — well past the deletion date — my number was still locked out.  
 I created a support ticket, but it was **automatically closed** without any response — just a “send feedback” button.
 
-![Closed support ticket screenshot](/2.png)
+![Closed support ticket screenshot](/2.jpg)
 
 I then tried reaching out everywhere:
 
@@ -58,11 +58,11 @@ It was rejected — they said it didn’t fit their security vulnerability categ
 Someone online suggested creating a new account with the same email to check if my data was really deleted.  
 I tried — a new account was created, but **it got banned within 7 hours**.
 
-![Account banned screenshot](/3.png)
+![Account banned screenshot](/3.jpg)
 
 Finally, I filed a formal grievance with **gac.gov.in**, but they rejected it, saying they only handle complaints made within one month of the issue.
 
-![GAC rejection screenshot](/4.png)
+![GAC rejection screenshot](/4.jpg)
 
 ## Where Things Stand Now
 
