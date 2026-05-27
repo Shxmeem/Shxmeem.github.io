@@ -87,13 +87,11 @@ async function injectOfferBanner() {
                 if (banners && banners.length > 0) {
                     createBannerElement(banners);
                 } else {
-                    // No banners to display - set banner height to 0 and resolve
                     document.documentElement.style.setProperty('--banner-height', `0px`);
                 }
                 resolve();
             })
             .catch(() => {
-                // No fallback banner - set banner height to 0 and resolve
                 document.documentElement.style.setProperty('--banner-height', `0px`);
                 resolve();
             });
@@ -216,12 +214,6 @@ function injectNavigationHTML() {
                         </div>
                     </div>
                 </div>
-                
-                <button class="hamburger" aria-label="Toggle navigation menu">
-                    <div class="hamburger-line"></div>
-                    <div class="hamburger-line"></div>
-                    <div class="hamburger-line"></div>
-                </button>
             </div>
             
             <div class="nav-bg-effect"></div>
@@ -520,40 +512,6 @@ function injectCompleteCSS() {
             background: linear-gradient(135deg, rgba(106, 17, 203, 0.1), rgba(155, 89, 182, 0.1));
         }
         
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 24px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1000;
-        }
-        
-        .hamburger-line {
-            width: 100%;
-            height: 3px;
-            background: #6a11cb;
-            border-radius: 9999px;
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            transform-origin: left center;
-        }
-        
-        .hamburger.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translateY(-2px);
-        }
-        
-        .hamburger.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translateY(2px);
-        }
-        
         .nav-bg-effect {
             position: absolute;
             top: 0;
@@ -581,7 +539,6 @@ function injectCompleteCSS() {
             }
         }
         
-        /* Mobile Menu Styles */
         @media (max-width: 1024px) {
             .offer-container {
                 padding: 0 1.5rem;
@@ -604,14 +561,6 @@ function injectCompleteCSS() {
             .logo {
                 min-width: 160px;
                 height: 58px;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .nav-menu-mobile {
-                display: none;
             }
         }
         
@@ -673,7 +622,6 @@ function finalizeNavigationSetup() {
         });
     }
     
-    // Setup cart functionality
     const cartContainer = document.querySelector('.cart-icon-container');
     if (cartContainer) {
         cartContainer.addEventListener('click', function() {
@@ -681,11 +629,9 @@ function finalizeNavigationSetup() {
         });
     }
     
-    // Setup dropdown menu with improved functionality - FIXED for Cloudflare cache issues
     const setupDropdown = function() {
         const dropdownMenu = document.querySelector('.dropdown-menu');
         if (!dropdownMenu) {
-            // Retry if dropdown not found (handles Cloudflare cache timing)
             setTimeout(setupDropdown, 100);
             return;
         }
@@ -693,15 +639,12 @@ function finalizeNavigationSetup() {
         const trigger = dropdownMenu.querySelector('.dropdown-trigger');
         if (!trigger) return;
         
-        // Remove any existing listeners to prevent duplicates
         const newTrigger = trigger.cloneNode(true);
         trigger.parentNode.replaceChild(newTrigger, trigger);
         
-        // Use mousedown instead of click for faster response
         newTrigger.addEventListener('mousedown', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            // Close all other dropdowns first
             document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
                 if (menu !== dropdownMenu) {
                     menu.classList.remove('active');
@@ -710,18 +653,15 @@ function finalizeNavigationSetup() {
             dropdownMenu.classList.toggle('active');
         });
         
-        // Close dropdown when clicking outside
         const handleOutsideClick = function(e) {
             if (dropdownMenu && !dropdownMenu.contains(e.target)) {
                 dropdownMenu.classList.remove('active');
             }
         };
         
-        // Remove existing listener and add new one
         document.removeEventListener('click', handleOutsideClick);
         document.addEventListener('click', handleOutsideClick);
         
-        // Close dropdown when pressing Escape key
         const handleEscape = function(e) {
             if (e.key === 'Escape' && dropdownMenu && dropdownMenu.classList.contains('active')) {
                 dropdownMenu.classList.remove('active');
@@ -730,7 +670,6 @@ function finalizeNavigationSetup() {
         document.removeEventListener('keydown', handleEscape);
         document.addEventListener('keydown', handleEscape);
         
-        // Handle dropdown links
         const dropdownLinks = dropdownMenu.querySelectorAll('.dropdown-link');
         dropdownLinks.forEach(link => {
             const newLink = link.cloneNode(true);
@@ -745,7 +684,6 @@ function finalizeNavigationSetup() {
             });
         });
         
-        // Prevent dropdown from closing when clicking inside content
         const dropdownContent = dropdownMenu.querySelector('.dropdown-content');
         if (dropdownContent) {
             const newContent = dropdownContent.cloneNode(true);
@@ -756,162 +694,7 @@ function finalizeNavigationSetup() {
         }
     };
     
-    // Call setup with a small delay to ensure DOM is ready
     setTimeout(setupDropdown, 50);
-    
-    // Setup hamburger menu for mobile
-    const hamburger = document.querySelector('.hamburger');
-    const navRight = document.querySelector('.nav-right');
-    
-    if (hamburger && navRight) {
-        // Create mobile menu if it doesn't exist
-        let mobileMenu = document.querySelector('.nav-menu-mobile');
-        if (!mobileMenu) {
-            mobileMenu = document.createElement('div');
-            mobileMenu.className = 'nav-menu-mobile';
-            mobileMenu.innerHTML = `
-                <a href="/" class="nav-link-mobile">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <a href="/pricing" class="nav-link-mobile">
-                    <i class="fas fa-tag"></i>
-                    <span>Pricing</span>
-                </a>
-                <a href="/about" class="nav-link-mobile">
-                    <i class="fas fa-info-circle"></i>
-                    <span>About</span>
-                </a>
-                <a href="/auth/login" class="nav-link-mobile">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Login</span>
-                </a>
-                <a href="/auth/signup" class="nav-link-mobile signup-mobile">
-                    <i class="fas fa-user-plus"></i>
-                    <span>Sign Up</span>
-                </a>
-            `;
-            document.body.appendChild(mobileMenu);
-            
-            // Add CSS for mobile menu
-            const mobileMenuCSS = `
-                .nav-menu-mobile {
-                    position: fixed;
-                    top: calc(80px + var(--banner-height, 0px));
-                    right: -100%;
-                    width: 280px;
-                    background: rgba(255, 255, 255, 0.98);
-                    backdrop-filter: blur(20px);
-                    border-radius: 1rem 0 0 1rem;
-                    box-shadow: -5px 10px 40px rgba(0, 0, 0, 0.1);
-                    padding: 1.5rem;
-                    z-index: 1050;
-                    transition: right 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                    border-left: 1px solid rgba(106, 17, 203, 0.1);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.5rem;
-                }
-                
-                .nav-menu-mobile.active {
-                    right: 0;
-                }
-                
-                .nav-link-mobile {
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-                    padding: 0.75rem 1rem;
-                    text-decoration: none;
-                    color: #4a4a5a;
-                    font-size: 1rem;
-                    border-radius: 0.75rem;
-                    transition: all 0.25s ease;
-                }
-                
-                .nav-link-mobile:hover {
-                    background: rgba(106, 17, 203, 0.05);
-                    color: #6a11cb;
-                    transform: translateX(5px);
-                }
-                
-                .nav-link-mobile i {
-                    width: 1.25rem;
-                    font-size: 1.1rem;
-                }
-                
-                .signup-mobile {
-                    background: linear-gradient(135deg, #6a11cb, #9b59b6);
-                    color: white;
-                    margin-top: 0.5rem;
-                }
-                
-                .signup-mobile:hover {
-                    background: linear-gradient(135deg, #7d2ae8, #a96bc7);
-                    color: white;
-                }
-                
-                @media (min-width: 1025px) {
-                    .nav-menu-mobile {
-                        display: none;
-                    }
-                }
-                
-                @media (max-width: 1024px) {
-                    .nav-menu-mobile {
-                        top: calc(80px + var(--banner-height, 0px));
-                    }
-                }
-                
-                @media (max-width: 768px) {
-                    .nav-menu-mobile {
-                        top: calc(72px + var(--banner-height, 0px));
-                        width: 260px;
-                        padding: 1rem;
-                    }
-                }
-            `;
-            const style = document.createElement('style');
-            style.textContent = mobileMenuCSS;
-            document.head.appendChild(style);
-        }
-        
-        // Toggle mobile menu
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            this.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('.nav-link-mobile');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const href = this.getAttribute('href');
-                if (href && href !== '#') {
-                    window.location.href = href;
-                }
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (mobileMenu && hamburger) {
-                if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                    if (hamburger.classList.contains('active')) {
-                        hamburger.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                }
-            }
-        });
-    }
     
     const nav = document.querySelector('nav');
     if (nav) {
@@ -942,7 +725,6 @@ let autoRotateInterval = null;
 let currentRotationIndex = 0;
 
 function startAutoRotation(totalSlides) {
-    // Clear any existing interval first
     if (autoRotateInterval) {
         clearInterval(autoRotateInterval);
         autoRotateInterval = null;
@@ -953,7 +735,6 @@ function startAutoRotation(totalSlides) {
     function showSlide(index) {
         const slides = document.querySelectorAll('.offer-slide');
         if (!slides.length || index >= slides.length) return;
-        
         slides.forEach(slide => slide.classList.remove('active'));
         if (slides[index]) {
             slides[index].classList.add('active');
@@ -964,7 +745,6 @@ function startAutoRotation(totalSlides) {
     function nextSlide() {
         const slides = document.querySelectorAll('.offer-slide');
         if (!slides.length) return;
-        
         let newIndex = currentRotationIndex + 1;
         if (newIndex >= slides.length) {
             newIndex = 0;
@@ -1001,8 +781,6 @@ if (typeof Turbo !== 'undefined') {
         if (oldNav) oldNav.remove();
         const oldBanner = document.querySelector('.offer-banner');
         if (oldBanner) oldBanner.remove();
-        const oldMobileMenu = document.querySelector('.nav-menu-mobile');
-        if (oldMobileMenu) oldMobileMenu.remove();
         initializeNavigation();
     });
 }
@@ -1013,8 +791,6 @@ window.addEventListener('pageshow', function(event) {
         if (oldNav) oldNav.remove();
         const oldBanner = document.querySelector('.offer-banner');
         if (oldBanner) oldBanner.remove();
-        const oldMobileMenu = document.querySelector('.nav-menu-mobile');
-        if (oldMobileMenu) oldMobileMenu.remove();
         initializeNavigation();
     }
 });
@@ -1026,8 +802,6 @@ window.Navigation = {
         if (oldNav) oldNav.remove();
         const oldBanner = document.querySelector('.offer-banner');
         if (oldBanner) oldBanner.remove();
-        const oldMobileMenu = document.querySelector('.nav-menu-mobile');
-        if (oldMobileMenu) oldMobileMenu.remove();
         initializeNavigation();
     }
 };
