@@ -186,7 +186,7 @@ function injectNavigationHTML() {
                     
                     <div class="dropdown-menu">
                         <button class="dropdown-trigger">
-                            <i class="fas fa-user-circle"></i>
+                            <i class="fas fa-bars"></i>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-content">
@@ -201,6 +201,10 @@ function injectNavigationHTML() {
                             <a href="/profile" class="dropdown-link">
                                 <i class="fas fa-user-edit"></i>
                                 <span>Profile</span>
+                            </a>
+                            <a href="/pricing" class="dropdown-link">
+                                <i class="fas fa-tag"></i>
+                                <span>Pricing</span>
                             </a>
                             <div class="dropdown-divider"></div>
                             <a href="/auth/login" class="dropdown-link">
