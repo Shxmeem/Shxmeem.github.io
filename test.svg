@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="50px" height="10px">
+  <defs>
+    <style>
+      .doodle-stroke {
+        fill: none;
+        stroke: #111111;
+        stroke-width: 3.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .doodle-fill-stroke {
+        stroke: #111111;
+        stroke-width: 3.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .doodle-bg {
+        transition: fill 0.3s ease;
+      }
+      .doodle-text {
+        font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+        font-weight: bold;
+        font-size: 38px;
+        fill: #111111;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+    </style>
+  </defs>
+
+  <!-- BACKGROUND COLOR SQUARE -->
+  <path id="square-bg" class="doodle-bg" fill="#87CEEB" d="M 125 120 C 120 180, 118 310, 122 375 C 190 380, 310 378, 375 372 C 380 310, 378 190, 372 125 C 310 120, 190 122, 125 120 Z" />
+
+  <!-- OUTER DOODLE FRAME ELEMENTS -->
+  <g class="doodle-stroke">
+    <!-- Top Border Doodles -->
+    <path d="M 130 90 Q 180 80, 240 95 T 350 85" />
+    <path d="M 150 100 A 8 8 0 1 1 160 100 A 8 8 0 1 1 150 100" />
+    <path d="M 220 75 Q 230 60, 240 75 Q 250 90, 260 75" fill="none" />
+    <path d="M 280 85 L 290 100 L 300 85 L 310 100" />
+    <path d="M 330 70 Q 345 65, 340 80 Q 330 95, 350 90" />
+    <circle cx="190" cy="80" r="3" fill="#111" />
+    <circle cx="200" cy="75" r="2" fill="#111" />
+    <circle cx="210" cy="80" r="3" fill="#111" />
+
+    <!-- Bottom Border Doodles -->
+    <path d="M 120 410 Q 200 425, 280 405 T 380 415" />
+    <path d="M 140 395 L 155 410 L 170 395 L 185 410 L 200 395" />
+    <path d="M 230 420 Q 240 435, 250 420 Q 260 405, 270 420" />
+    <path d="M 310 400 A 10 10 0 1 0 320 415" />
+    <circle cx="215" cy="415" r="4" fill="#111" />
+    <path d="M 340 405 L 360 405 M 350 395 L 350 415" />
+
+    <!-- Left Border Doodles -->
+    <path d="M 90 130 Q 80 220, 95 300 T 85 370" />
+    <path d="M 100 150 Q 80 160, 100 170 Q 80 180, 100 190" />
+    <path d="M 75 220 C 65 210, 65 240, 80 230 C 95 220, 85 250, 70 240" />
+    <polygon points="95,270 105,285 85,285" fill="none" class="doodle-stroke" />
+    <path d="M 100 320 Q 80 330, 95 350" />
+    <circle cx="80" cy="200" r="3" fill="#111" />
+    <circle cx="75" cy="300" r="4" fill="#111" />
+
+    <!-- Right Border Doodles -->
+    <path d="M 410 125 Q 425 210, 405 290 T 415 375" />
+    <path d="M 400 140 Q 420 150, 400 160 T 400 180" />
+    <polygon points="415,200 425,215 405,215" fill="none" class="doodle-stroke" />
+    <path d="M 395 240 A 12 12 0 1 1 410 255" />
+    <path d="M 400 290 L 420 290 M 400 300 L 420 300 M 400 310 L 420 310" />
+    <path d="M 405 340 L 415 360 L 395 350 Z" />
+
+    <!-- Corner Accents -->
+    <!-- Top-Left Star -->
+    <path class="doodle-fill-stroke" fill="#111111" d="M 105 95 L 110 107 L 122 107 L 112 115 L 116 127 L 105 119 L 94 127 L 98 115 L 88 107 L 100 107 Z" />
+    <!-- Top-Right Heart -->
+    <path class="doodle-fill-stroke" fill="none" d="M 390 95 C 390 85, 375 85, 375 95 C 375 85, 360 85, 360 95 C 360 110, 375 120, 375 125 C 375 120, 390 110, 390 95 Z" />
+    <!-- Bottom-Left Swirl -->
+    <path d="M 95 390 Q 110 380, 115 395 T 100 405" />
+    <!-- Bottom-Right Star -->
+    <path class="doodle-fill-stroke" fill="none" d="M 390 385 L 394 395 L 405 395 L 396 401 L 399 411 L 390 405 L 381 411 L 384 401 L 375 395 L 386 395 Z" />
+
+    <!-- HAND-DRAWN DOUBLE-LINE SQUARE BORDER -->
+    <path d="M 125 120 C 200 115, 300 122, 372 125 C 378 200, 370 300, 375 372 C 300 378, 200 370, 122 375 C 118 300, 124 200, 125 120 Z" />
+    <path d="M 132 128 C 200 124, 295 129, 365 131 C 370 198, 364 295, 368 365 C 298 370, 198 364, 130 367 C 125 298, 130 198, 132 128 Z" />
+  </g>
+
+  <!-- TEXT ELEMENT -->
+  <text id="box-label" x="250" y="250" class="doodle-text">my self</text>
+
+  <!-- SCRIPT FOR DYNAMIC URL PARAMETERS -->
+  <script type="text/javascript">
+    <![CDATA[
+    (function() {
+      function getQueryParams() {
+        var params = {};
+        var search = window.location.search.substring(1);
+        if (search) {
+          var pairs = search.split("&");
+          for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i].split("=");
+            params[decodeURIComponent(pair[0]).toLowerCase()] = decodeURIComponent(pair[1] || '');
+          }
+        }
+        return params;
+      }
+
+      var params = getQueryParams();
+
+      // Update text name
+      if (params.name) {
+        var labelEl = document.getElementById('box-label');
+        if (labelEl) {
+          labelEl.textContent = params.name;
+        }
+      }
+
+      // Update background colour
+      if (params.colour || params.color) {
+        var bgEl = document.getElementById('square-bg');
+        if (bgEl) {
+          bgEl.style.fill = params.colour || params.color;
+        }
+      }
+    })();
+    ]]>
+  </script>
+</svg>
