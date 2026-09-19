@@ -5,66 +5,60 @@
   <defs>
     <!-- ================================================================= -->
     <!-- THEME COLOR PALETTES                                              -->
-    <!-- To switch themes, uncomment ONE theme block below.                -->
     <!-- ================================================================= -->
 
     <!-- LIGHT THEME -->
-    <!--
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg-gradient-light" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F8FAFC" />
       <stop offset="100%" stop-color="#EDF2F7" />
     </linearGradient>
     <style type="text/css">
-      .window-bg { fill: #FFFFFF; }
-      .window-stroke { fill: none; stroke: #E2E8F0; }
-      .header-bg { fill: #FAFAFA; }
-      .card-bg { fill: #FFFFFF; }
-      .card-stroke { fill: none; stroke: #F1F5F9; }
-      .text-primary { fill: #0F172A; }
-      .circle-bg { fill: #E2E8F0; }
-      .stroke-line { stroke: #E2E8F0; }
-      .stroke-line-subtle { stroke: #F1F5F9; }
-      .fill-muted { fill: #E2E8F0; }
+      .theme-light .window-bg { fill: #FFFFFF; }
+      .theme-light .window-stroke { fill: none; stroke: #E2E8F0; }
+      .theme-light .header-bg { fill: #FAFAFA; }
+      .theme-light .card-bg { fill: #FFFFFF; }
+      .theme-light .card-stroke { fill: none; stroke: #F1F5F9; }
+      .theme-light .text-primary { fill: #0F172A; }
+      .theme-light .circle-bg { fill: #E2E8F0; }
+      .theme-light .stroke-line { stroke: #E2E8F0; }
+      .theme-light .stroke-line-subtle { stroke: #F1F5F9; }
+      .theme-light .fill-muted { fill: #E2E8F0; }
     </style>
-    -->
 
     <!-- DARK THEME -->
-    <!--
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg-gradient-dark" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0F172A" />
       <stop offset="100%" stop-color="#020617" />
     </linearGradient>
     <style type="text/css">
-      .window-bg { fill: #1E293B; }
-      .window-stroke { fill: none; stroke: #334155; }
-      .header-bg { fill: #0F172A; }
-      .card-bg { fill: #1E293B; }
-      .card-stroke { fill: none; stroke: #334155; }
-      .text-primary { fill: #F8FAFC; }
-      .circle-bg { fill: #1E293B; }
-      .stroke-line { stroke: #334155; }
-      .stroke-line-subtle { stroke: #334155; }
-      .fill-muted { fill: #334155; }
+      .theme-dark .window-bg { fill: #1E293B; }
+      .theme-dark .window-stroke { fill: none; stroke: #334155; }
+      .theme-dark .header-bg { fill: #0F172A; }
+      .theme-dark .card-bg { fill: #1E293B; }
+      .theme-dark .card-stroke { fill: none; stroke: #334155; }
+      .theme-dark .text-primary { fill: #F8FAFC; }
+      .theme-dark .circle-bg { fill: #1E293B; }
+      .theme-dark .stroke-line { stroke: #334155; }
+      .theme-dark .stroke-line-subtle { stroke: #334155; }
+      .theme-dark .fill-muted { fill: #334155; }
     </style>
-    -->
 
-    <!-- NEON PURPLE THEME (Active) -->
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- NEON PURPLE THEME -->
+    <linearGradient id="bg-gradient-neon" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0D0714" />
       <stop offset="100%" stop-color="#1A0B2E" />
     </linearGradient>
-
     <style type="text/css">
-      .window-bg { fill: #130924; }
-      .window-stroke { fill: none; stroke: #2A1745; }
-      .header-bg { fill: #0A0412; }
-      .card-bg { fill: #1C0D36; }
-      .card-stroke { fill: none; stroke: #3B1C6E; }
-      .text-primary { fill: #FFFFFF; }
-      .circle-bg { fill: #230F42; }
-      .stroke-line { stroke: #2A1745; }
-      .stroke-line-subtle { stroke: #3B1C6E; }
-      .fill-muted { fill: #2A1745; }
+      .theme-neon .window-bg { fill: #130924; }
+      .theme-neon .window-stroke { fill: none; stroke: #2A1745; }
+      .theme-neon .header-bg { fill: #0A0412; }
+      .theme-neon .card-bg { fill: #1C0D36; }
+      .theme-neon .card-stroke { fill: none; stroke: #3B1C6E; }
+      .theme-neon .text-primary { fill: #FFFFFF; }
+      .theme-neon .circle-bg { fill: #230F42; }
+      .theme-neon .stroke-line { stroke: #2A1745; }
+      .theme-neon .stroke-line-subtle { stroke: #3B1C6E; }
+      .theme-neon .fill-muted { fill: #2A1745; }
     </style>
 
     <!-- Gradients -->
@@ -114,7 +108,7 @@
   </defs>
 
   <!-- Background Canvas -->
-  <rect width="1200" height="630" fill="url(#bg-gradient)" />
+  <rect width="1200" height="630" class="bg-rect" fill="url(#bg-gradient-neon)" />
 
   <!-- Ambient Decorative Background Shapes -->
   <circle cx="180" cy="160" r="240" class="circle-bg" opacity="0.5" />
