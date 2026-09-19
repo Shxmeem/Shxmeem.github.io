@@ -1,51 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="100%" height="100%">
   <title>SaaS Blog Thumbnail Template</title>
-  <desc>Dynamic SVG template with placeholders for Title, Icons, and Color Themes (Light, Dark, Neon Purple).</desc>
+  <desc>Clean SVG template with parameters for Title, Icons, and Color Themes.</desc>
   
   <defs>
     <!-- ================================================================= -->
-    <!-- THEME COLOR PALETTES (Toggle / Edit values to switch themes)      -->
+    <!-- THEME COLOR PALETTES                                              -->
+    <!-- To switch themes, uncomment ONE theme block below.                -->
     <!-- ================================================================= -->
 
-    <!-- LIGHT THEME (Default) -->
+    <!-- LIGHT THEME -->
     <!--
     <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F8FAFC" />
       <stop offset="100%" stop-color="#EDF2F7" />
     </linearGradient>
-    <style>
-      :root {
-        --window-bg: #FFFFFF;
-        --window-stroke: #E2E8F0;
-        --header-bg: #FAFAFA;
-        --card-bg: #FFFFFF;
-        --card-stroke: #F1F5F9;
-        --text-primary: #0F172A;
-        --text-secondary: #64748B;
-        --accent-glow: #2563EB;
-        --circle-bg: #E2E8F0;
-      }
+    <style type="text/css">
+      .window-bg { fill: #FFFFFF; }
+      .window-stroke { fill: none; stroke: #E2E8F0; }
+      .header-bg { fill: #FAFAFA; }
+      .card-bg { fill: #FFFFFF; }
+      .card-stroke { fill: none; stroke: #F1F5F9; }
+      .text-primary { fill: #0F172A; }
+      .circle-bg { fill: #E2E8F0; }
+      .stroke-line { stroke: #E2E8F0; }
+      .stroke-line-subtle { stroke: #F1F5F9; }
+      .fill-muted { fill: #E2E8F0; }
     </style>
     -->
 
-    <!-- DARK THEME (Uncomment to activate) -->
+    <!-- DARK THEME -->
     <!--
     <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0F172A" />
       <stop offset="100%" stop-color="#020617" />
     </linearGradient>
-    <style>
-      :root {
-        --window-bg: #1E293B;
-        --window-stroke: #334155;
-        --header-bg: #0F172A;
-        --card-bg: #1E293B;
-        --card-stroke: #334155;
-        --text-primary: #F8FAFC;
-        --text-secondary: #94A3B8;
-        --accent-glow: #3B82F6;
-        --circle-bg: #1E293B;
-      }
+    <style type="text/css">
+      .window-bg { fill: #1E293B; }
+      .window-stroke { fill: none; stroke: #334155; }
+      .header-bg { fill: #0F172A; }
+      .card-bg { fill: #1E293B; }
+      .card-stroke { fill: none; stroke: #334155; }
+      .text-primary { fill: #F8FAFC; }
+      .circle-bg { fill: #1E293B; }
+      .stroke-line { stroke: #334155; }
+      .stroke-line-subtle { stroke: #334155; }
+      .fill-muted { fill: #334155; }
     </style>
     -->
 
@@ -55,18 +54,17 @@
       <stop offset="100%" stop-color="#1A0B2E" />
     </linearGradient>
 
-    <style>
-      :root {
-        --window-bg: #130924;
-        --window-stroke: #2A1745;
-        --header-bg: #0A0412;
-        --card-bg: #1C0D36;
-        --card-stroke: #3B1C6E;
-        --text-primary: #FFFFFF;
-        --text-secondary: #A78BFA;
-        --accent-glow: #D946EF;
-        --circle-bg: #230F42;
-      }
+    <style type="text/css">
+      .window-bg { fill: #130924; }
+      .window-stroke { fill: none; stroke: #2A1745; }
+      .header-bg { fill: #0A0412; }
+      .card-bg { fill: #1C0D36; }
+      .card-stroke { fill: none; stroke: #3B1C6E; }
+      .text-primary { fill: #FFFFFF; }
+      .circle-bg { fill: #230F42; }
+      .stroke-line { stroke: #2A1745; }
+      .stroke-line-subtle { stroke: #3B1C6E; }
+      .fill-muted { fill: #2A1745; }
     </style>
 
     <!-- Gradients -->
@@ -95,10 +93,10 @@
     </filter>
 
     <!-- ================================================================= -->
-    <!-- ICON DEFINITIONS (Configurable Center, Left & Right Icons)         -->
+    <!-- ICON DEFINITIONS (Configurable Center, Left & Right Icons)        -->
     <!-- ================================================================= -->
     
-    <!-- CENTER ICON: AI / Brain Node (Replace path for custom icon) -->
+    <!-- CENTER ICON: AI / Brain Node -->
     <g id="icon-center">
       <path d="M 12 4 A 8 8 0 0 0 4 12 C 4 15 5.5 17.5 8 19 L 8 21 A 1 1 0 0 0 9 22 L 15 22 A 1 1 0 0 0 16 21 L 16 19 C 18.5 17.5 20 15 20 12 A 8 8 0 0 0 12 4 Z M 9 20 L 15 20 L 15 18 L 9 18 Z" fill="#FFFFFF" transform="scale(1.8) translate(-12, -12)" />
     </g>
@@ -119,17 +117,17 @@
   <rect width="1200" height="630" fill="url(#bg-gradient)" />
 
   <!-- Ambient Decorative Background Shapes -->
-  <circle cx="180" cy="160" r="240" fill="var(--circle-bg)" opacity="0.5" />
-  <circle cx="1040" cy="450" r="300" fill="var(--circle-bg)" opacity="0.4" />
+  <circle cx="180" cy="160" r="240" class="circle-bg" opacity="0.5" />
+  <circle cx="1040" cy="450" r="300" class="circle-bg" opacity="0.4" />
 
   <!-- Main UI Window Container -->
   <g transform="translate(180, 60)" filter="url(#shadow-main)">
     <!-- Window Frame -->
-    <rect width="840" height="400" rx="16" fill="var(--window-bg)" stroke="var(--window-stroke)" stroke-width="1.5" />
+    <rect width="840" height="400" rx="16" class="window-bg window-stroke" stroke-width="1.5" />
     
     <!-- Window Header -->
-    <path d="M 0 16 A 16 16 0 0 1 16 0 L 824 0 A 16 16 0 0 1 840 16 L 840 44 L 0 44 Z" fill="var(--header-bg)" />
-    <line x1="0" y1="44" x2="840" y2="44" stroke="var(--window-stroke)" stroke-width="1.5" />
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 824 0 A 16 16 0 0 1 840 16 L 840 44 L 0 44 Z" class="header-bg" />
+    <line x1="0" y1="44" x2="840" y2="44" class="stroke-line" stroke-width="1.5" />
 
     <!-- Window Control Buttons -->
     <circle cx="28" cy="22" r="5" fill="#FF5F56" />
@@ -137,25 +135,25 @@
     <circle cx="60" cy="22" r="5" fill="#27C93F" />
 
     <!-- Search/URL Pill Placeholder -->
-    <rect x="96" y="12" width="200" height="20" rx="10" fill="var(--window-stroke)" opacity="0.5" />
+    <rect x="96" y="12" width="200" height="20" rx="10" class="fill-muted" opacity="0.5" />
 
     <!-- Workflow Nodes & Connecting Lines Grid -->
-    <g stroke="var(--window-stroke)" stroke-width="2" stroke-dasharray="6 6">
+    <g class="stroke-line" stroke-width="2" stroke-dasharray="6 6">
       <line x1="200" y1="200" x2="420" y2="200" />
       <line x1="420" y1="200" x2="640" y2="200" />
       <line x1="420" y1="110" x2="420" y2="290" />
     </g>
 
-    <g stroke="var(--window-stroke)" stroke-width="2">
-      <circle cx="420" cy="110" r="12" fill="var(--window-bg)" />
-      <circle cx="420" cy="290" r="12" fill="var(--window-bg)" />
-      <circle cx="310" cy="200" r="12" fill="var(--window-bg)" />
-      <circle cx="530" cy="200" r="12" fill="var(--window-bg)" />
+    <g class="stroke-line" stroke-width="2">
+      <circle cx="420" cy="110" r="12" class="window-bg" />
+      <circle cx="420" cy="290" r="12" class="window-bg" />
+      <circle cx="310" cy="200" r="12" class="window-bg" />
+      <circle cx="530" cy="200" r="12" class="window-bg" />
     </g>
 
-    <!-- LEFT UI CARD (With Left Icon) -->
+    <!-- LEFT UI CARD -->
     <g transform="translate(40, 75)" filter="url(#shadow-card)">
-      <rect width="220" height="250" rx="12" fill="var(--card-bg)" stroke="var(--card-stroke)" stroke-width="1" />
+      <rect width="220" height="250" rx="12" class="card-bg card-stroke" stroke-width="1" />
       
       <!-- Icon Slot Left -->
       <g transform="translate(20, 20)">
@@ -166,7 +164,7 @@
       <path d="M 20 200 L 50 160 L 90 180 L 140 110 L 190 70" fill="none" stroke="url(#cyan-gradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
       <circle cx="190" cy="70" r="6" fill="#D946EF" />
 
-      <rect x="20" y="218" width="180" height="8" rx="4" fill="var(--window-stroke)" opacity="0.6" />
+      <rect x="20" y="218" width="180" height="8" rx="4" class="fill-muted" opacity="0.6" />
     </g>
 
     <!-- CENTER NODE (Primary Highlight / Main Icon) -->
@@ -178,28 +176,22 @@
       </g>
     </g>
 
-    <!-- RIGHT UI CARD (With Right Icon) -->
+    <!-- RIGHT UI CARD -->
     <g transform="translate(580, 75)" filter="url(#shadow-card)">
-      <rect width="220" height="250" rx="12" fill="var(--card-bg)" stroke="var(--card-stroke)" stroke-width="1" />
+      <rect width="220" height="250" rx="12" class="card-bg card-stroke" stroke-width="1" />
       
       <!-- Icon Slot Right -->
       <g transform="translate(20, 20)">
         <use href="#icon-right" />
       </g>
-
-      <!-- Metric Donut Chart -->
-      <circle cx="110" cy="135" r="50" fill="none" stroke="var(--window-stroke)" stroke-width="16" />
+      <circle cx="110" cy="135" r="50" fill="none" class="stroke-line-subtle" stroke-width="16" />
       <circle cx="110" cy="135" r="50" fill="none" stroke="url(#primary-gradient)" stroke-width="16" stroke-dasharray="220 360" stroke-linecap="round" transform="rotate(-90 110 135)" />
 
-      <rect x="30" y="210" width="160" height="8" rx="4" fill="var(--window-stroke)" opacity="0.6" />
+      <rect x="30" y="210" width="160" height="8" rx="4" class="fill-muted" opacity="0.6" />
     </g>
   </g>
-
-  <!-- ================================================================= -->
-  <!-- BLOG TITLE PARAMETER                                              -->
-  <!-- ================================================================= -->
   <g transform="translate(600, 545)">
-    <text text-anchor="middle" font-family="Inter, Geist, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="40" fill="var(--text-primary)" letter-spacing="-0.02em">
+    <text text-anchor="middle" font-family="Inter, Geist, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="40" class="text-primary" letter-spacing="-0.02em">
       {{BLOG_TITLE}}
     </text>
   </g>
