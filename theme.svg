@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="280" viewBox="0 0 380 280">
+  <defs>
+    <!-- Card shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#f0fdf4"/>
+      <stop offset="50%"  stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#bbf7d0"/>
+    </linearGradient>
+
+    <!-- Card gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0fdf4"/>
+    </linearGradient>
+
+    <!-- Accent gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#16a34a"/>
+      <stop offset="50%"  stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect id="bg" width="380" height="280" rx="20" ry="20" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle id="decor1" cx="320" cy="60"  r="80"  fill="#22c55e" opacity="0.10"/>
+  <circle id="decor2" cx="60"  cy="240" r="100" fill="#4ade80" opacity="0.08"/>
+  <circle id="decor3" cx="340" cy="230" r="50"  fill="#86efac" opacity="0.10"/>
+
+  <!-- Card background -->
+  <rect id="cardBg" x="30" y="60" width="320" height="160" rx="20" ry="20"
+        fill="url(#cardGrad)" filter="url(#shadow)"/>
+
+  <!-- Top accent bar -->
+  <rect id="accentBar" x="30" y="60" width="320" height="5" rx="2.5" ry="2.5"
+        fill="url(#accentGrad)"/>
+
+  <!-- Subtle inner border -->
+  <rect id="innerBorder" x="30" y="60" width="320" height="160" rx="20" ry="20"
+        fill="none" stroke="#22c55e" stroke-width="0.5" opacity="0.35"/>
+
+  <!-- Dynamic Title -->
+  <text id="cardTitle" x="190" y="145" text-anchor="middle"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="28" font-weight="700" letter-spacing="0.5"
+        fill="#14532d">Study Materials</text>
+
+  <!-- Underline accent -->
+  <rect id="underline" x="135" y="162" width="110" height="3" rx="1.5" ry="1.5"
+        fill="url(#accentGrad)" opacity="0.85"/>
+
+  <script type="text/javascript"><![CDATA[
+    // ---------- 1. Theme definitions ----------
+    var themes = {
+      GreenPistachio: {
+        bg:     ["#f0fdf4", "#dcfce7", "#bbf7d0"],
+        card:   ["#ffffff", "#f0fdf4"],
+        accent: ["#16a34a", "#22c55e", "#4ade80"],
+        text:   "#14532d",
+        border: "#22c55e",
+        decor:  ["#22c55e", "#4ade80", "#86efac"]
+      },
+      PurpleNight: {
+        bg:     ["#0f172a", "#1e1b4b", "#312e81"],
+        card:   ["#1e293b", "#0f172a"],
+        accent: ["#6366f1", "#8b5cf6", "#a78bfa"],
+        text:   "#f8fafc",
+        border: "#6366f1",
+        decor:  ["#6366f1", "#8b5cf6", "#a78bfa"]
+      },
+      White: {
+        bg:     ["#f8fafc", "#f1f5f9", "#e2e8f0"],
+        card:   ["#ffffff", "#f8fafc"],
+        accent: ["#0f172a", "#334155", "#64748b"],
+        text:   "#0f172a",
+        border: "#94a3b8",
+        decor:  ["#cbd5e1", "#e2e8f0", "#94a3b8"]
+      },
+      OceanBlue: {
+        bg:     ["#0c4a6e", "#075985", "#0369a1"],
+        card:   ["#0e7490", "#155e75"],
+        accent: ["#22d3ee", "#67e8f9", "#a5f3fc"],
+        text:   "#ecfeff",
+        border: "#22d3ee",
+        decor:  ["#22d3ee", "#67e8f9", "#a5f3fc"]
+      },
+      SunsetOrange: {
+        bg:     ["#7c2d12", "#9a3412", "#c2410c"],
+        card:   ["#431407", "#7c2d12"],
+        accent: ["#fb923c", "#fdba74", "#fed7aa"],
+        text:   "#fff7ed",
+        border: "#fb923c",
+        decor:  ["#fb923c", "#fdba74", "#fed7aa"]
+      }
+    };
+
+    // ---------- 2. Read parameters from URL ----------
+    function getParam(name, fallback) {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var v = params.get(name);
+        return v !== null && v !== "" ? v : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    var text  = getParam("text",  "Study Materials");
+    var theme = getParam("theme", "GreenPistachio");
+
+    // Fall back to default if theme name is unknown
+    if (!themes[theme]) theme = "GreenPistachio";
+    var t = themes[theme];
+
+    // ---------- 3. Apply theme ----------
+    function setStops(gradientId, colors) {
+      var stops = document.querySelectorAll("#" + gradientId + " stop");
+      for (var i = 0; i < stops.length && i < colors.length; i++) {
+        stops[i].setAttribute("stop-color", colors[i]);
+      }
+    }
+    setStops("bgGrad",     t.bg);
+    setStops("cardGrad",   t.card);
+    setStops("accentGrad", t.accent);
+
+    document.getElementById("decor1").setAttribute("fill", t.decor[0]);
+    document.getElementById("decor2").setAttribute("fill", t.decor[1]);
+    document.getElementById("decor3").setAttribute("fill", t.decor[2]);
+    document.getElementById("innerBorder").setAttribute("stroke", t.border);
+    document.getElementById("cardTitle").setAttribute("fill", t.text);
+
+    // ---------- 4. Apply text ----------
+    var titleEl = document.getElementById("cardTitle");
+    titleEl.textContent = text;
+
+    // ---------- 5. Recenter underline based on text length ----------
+    // Rough estimate: 28px font, average char width ~15.5px
+    var approxWidth = text.length * 15.5;
+    var w = Math.max(60, Math.min(approxWidth, 280));
+    var underline = document.getElementById("underline");
+    underline.setAttribute("width", w);
+    underline.setAttribute("x", 190 - w / 2);
+  ]]></script>
+</svg>
